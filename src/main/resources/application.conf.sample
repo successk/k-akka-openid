@@ -1,0 +1,11 @@
+session {
+  openid {
+    max-seconds = 300
+    google {
+      client = ""
+      secret = ""
+      external = ""
+      redirect = ""
+    }
+  }
+}
