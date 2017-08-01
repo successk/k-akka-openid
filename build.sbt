@@ -6,20 +6,23 @@ description := "Openid implementation for Akka HTTP"
 
 version := "0.1.0"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.12.3"
 
 scalacOptions := Seq("-encoding", "utf8")
 
+val   akkaV     = "2.5.3"
+val   akkaHttpV = "10.0.9"
+
 libraryDependencies ++= {
   Seq(
-    "com.typesafe.akka" %% "akka-http-experimental" % "2.0.2",
-    "com.typesafe.akka" %% "akka-http-spray-json-experimental" % "2.0.2",
+    "com.typesafe.akka" %% "akka-http"               % akkaHttpV,
+    "com.typesafe.akka" %% "akka-http-spray-json"    % akkaHttpV,
     "org.scala-lang.modules" %% "scala-xml" % "1.0.5",
     "com.nimbusds" % "nimbus-jose-jwt" % "4.11",
 
-    "org.scalatest" %% "scalatest" % "2.2.6" % "test",
-    "com.typesafe.akka" %% "akka-testkit" % "2.3.12" % "test",
-    "com.typesafe.akka" %% "akka-http-testkit-experimental" % "2.0.2" % "test"
+    "org.scalatest" %% "scalatest" % "3.0.1" % "test",
+    "com.typesafe.akka" %% "akka-testkit"            % akkaV % "test",
+    "com.typesafe.akka" %% "akka-http-testkit"       % akkaHttpV % "test"
   )
 }
 

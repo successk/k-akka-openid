@@ -14,6 +14,8 @@ import scala.concurrent.duration.FiniteDuration
 class OpenidRouterSpec extends WordSpecLike with ScalatestRouteTest {
   implicit val sessionDuration = new FiniteDuration(1, TimeUnit.MINUTES)
 
+  implicit def toScalaOption[A](underlying: java.util.Optional[A]):Option[A] = if (underlying.isPresent) Some(underlying.get) else None
+
   val providers = Seq(OpenidProviderMock(OpenidProviderMockSettings("tst")))
   val routerSettings = OpenidRouterSettings(
     prefix = Some("session"),
